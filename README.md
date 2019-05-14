@@ -39,7 +39,7 @@ embedded documents capture relationships between data by storing related data in
 pros: this type provides better performance for query performance (read), request & retrieve related data in a single operation <br> 
 cons: may cause data inconsistency.
 
-```json
+```javascript
 {
     _id: <ObjectId1>,
     username: "Jinsoo",
@@ -61,7 +61,7 @@ references store the relationships btw data by including links or references fro
 in general, this type makes your data compact, easy to store and easy to achieve consistency <--> low query performance and hard to scale horizontally
 
 
-```json
+```javascript
 // user document
 {
     _id: <ObjectId1>,
