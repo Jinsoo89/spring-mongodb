@@ -15,8 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -87,19 +86,19 @@ public class DemoApplicationTests {
         assertEquals(companyList.get(0).getAddress(), wisefashion.getAddress());
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void testDeleteRequest() {
         String idToDelete = companyRepository.findAll().get(0).getId();
 
         assertNotNull(idToDelete);
 
-        mongoTemplate.re
-
+        companyRepository.deleteById(idToDelete);
+        // nothing in the collection, should throw the IndexOutOfBoundsException
+        companyRepository.findAll().get(0);
     }
 
     @After
     public void terminate() {
         companyRepository.deleteAll();
-
     }
 }
