@@ -40,4 +40,14 @@ public class Company {
     public List<Member> getMembers() {
         return members;
     }
+
+    // add setter for unit test
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // add setter for unit test
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }
