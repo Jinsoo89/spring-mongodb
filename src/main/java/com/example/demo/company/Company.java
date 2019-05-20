@@ -1,11 +1,14 @@
-package com.example.demo;
+package com.example.demo.company;
 
+import com.example.demo.Member;
+import com.example.demo.Team;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
-@Document(collection = "companies")
+@Document(collection = CompanyDao.COLLECTION)
 public class Company {
     @Id
     private String id;
@@ -33,21 +36,15 @@ public class Company {
         return address;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<Team> getTeams() {
         return teams;
     }
 
     public List<Member> getMembers() {
         return members;
-    }
-
-    // add setter for unit test
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // add setter for unit test
-    public void setAddress(String address) {
-        this.address = address;
     }
 }

@@ -1,9 +1,7 @@
-package com.example.demo;
+package com.example.demo.company;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface CompanyRepository extends MongoRepository<Company, String> {
-
+    Company findCompanyByName(String name);
 }
